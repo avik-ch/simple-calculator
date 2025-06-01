@@ -33,4 +33,23 @@ function operate(a, b, operator) {
 // Initial state
 let num1 = 0, num2 = 0, operator = '+';
 
+const screen = document.querySelector('.screen');
+function updateDisplay(input) {
+    let text = screen.textContent.trim();
+    if (input === '.') {
+        if (text.indexOf('.') !== -1) {
+            screen.textContent = text + '.';
+        }
+    } else {
+        screen.textContent = Number(text + input);
+    }
+}
 
+
+const numberKeys = document.querySelectorAll('.number');
+numberKeys.forEach(key => {
+    key.addEventListener('click', (e) => {
+        console.log("Clicked " + key.textContent);
+        updateDisplay(key.textContent);
+    });
+});
