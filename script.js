@@ -27,6 +27,7 @@ function operate(a, b, symbol) {
     }
 }
 
-let num1, num2, operator;
+// Initial state
+let num1 = 0, num2, operator = '+';
 
 
