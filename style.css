@@ -15,6 +15,7 @@ html, body {
     border-radius: 16px;
     padding: 15px;
     gap: 8px;
+    background-color: rgb(71, 69, 69);
 }
 
 .screen {
@@ -35,6 +36,8 @@ html, body {
 }
 
 button {
+    color: white;
+    background-color: rgb(122, 138, 144);
     border-radius: 50%;
     font-size: 1.5rem;
     width: 64px;
