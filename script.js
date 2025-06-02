@@ -101,6 +101,9 @@ allClear.addEventListener('click', (e) => {
 const delBtn = document.querySelector('#delete');
 delBtn.addEventListener('click', (e) => {
     screen.textContent = screen.textContent.slice(0, -1);
+    if (screen.textContent === '') {
+        screen.textContent = 0;
+    }
 });
 
 
@@ -119,7 +122,7 @@ operatorButtons.forEach(key => {
                 }
                 repeatedOperator = true;
             }
-            operator = key.textContent;
+            operator = key.textContent !== '=' ? key.textContent : operator;
         }
     });
 });
