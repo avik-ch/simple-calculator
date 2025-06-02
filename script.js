@@ -123,3 +123,71 @@ operatorButtons.forEach(key => {
         }
     });
 });
+
+
+window.addEventListener('keydown', (e) => {
+    let btn;
+
+    switch (e.key) {
+        case '0':
+            btn = document.querySelector('#zero');
+            break;
+        case '1':
+            btn = document.querySelector('#one');
+            break;
+        case '2':
+            btn = document.querySelector('#two');
+            break;
+        case '3':
+            btn = document.querySelector('#three');
+            break;
+        case '4':
+            btn = document.querySelector('#four');
+            break;
+        case '5':
+            btn = document.querySelector('#five');
+            break;
+        case '6':
+            btn = document.querySelector('#six');
+            break;
+        case '7':
+            btn = document.querySelector('#seven');
+            break;
+        case '8':
+            btn = document.querySelector('#eight');
+            break;
+        case '9':
+            btn = document.querySelector('#nine');
+            break;
+        case '+':
+            btn = document.querySelector('#add');
+            break;
+        case '-':
+            btn = document.querySelector('#subtract');
+            break;
+        case '*':
+            btn = document.querySelector('#multiply');
+            break;
+        case '/':
+            btn = document.querySelector('#divide');
+            break;
+        case '=':
+        case 'Enter':
+            btn = document.querySelector('#equals');
+            break;
+        case 'Backspace':
+            btn = document.querySelector('#delete');
+            break;
+        case 'Escape':
+            btn = document.querySelector('#all-clear');
+            break;
+        case '.':
+            btn = document.querySelector('#decimal');
+            break;
+    }
+
+    if (btn) {
+        btn.dispatchEvent(new MouseEvent('click'));
+    }
+
+});
