@@ -17,20 +17,29 @@ function divide(a, b) {
 }
 
 function operate(a, b, operator) {
+    let ans;
     switch (operator) {
         case "+":
-            return add(a, b);
+            ans = add(a, b);
+            break;
         case "-":
-            return subtract(a, b);
+            ans = subtract(a, b);
+            break;
         case "x":
-            return multiply(a, b);
+            ans = multiply(a, b);
+            break;
         case "/":
             if (b === 0) {
                 disableOperators = true;
-                return divByZeroError;
-            }
-            return divide(a, b);
+                ans = divByZeroError;
+            } else ans = divide(a, b);
+            break;
     }
+
+    if (String(ans).length > 9) {
+        ans = ans.toExponential(5);
+    }
+    return ans;
 }
 
 // Initial state
@@ -47,13 +56,20 @@ function resetValues() {
 
 const screen = document.querySelector('.screen');
 function updateDisplay(input) {
-    if (num2 === '') {
-        screen.textContent = input;
-        num2 = Number(input);
-    } else {
+    if (screen.textContent.length === 9) return;
+    if (num2 === '') { // case where an operator was pressed, meaning new number being entered
+        if (input === '.') {
+            screen.textContent = '0.';
+        } else {
+            screen.textContent = input;
+        }
+        num2 = Number(screen.textContent);
+    } else { // case where appending to existing number on display
         let text = screen.textContent.trim();
-        if (input === '.' && text.indexOf('.') === -1) {
-            screen.textContent = text + '.';
+        if (input === '.') {
+            if (text.indexOf('.') === -1) {
+                screen.textContent = text + '.';
+            }
         } else {
             screen.textContent = Number(text + input);
         }

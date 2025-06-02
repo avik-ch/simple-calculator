@@ -20,7 +20,8 @@ html, body {
 
 .screen {
     height: 5rem;
-    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
     background-color: rgb(225, 200, 163);
     justify-content: end;
     align-items: end;
